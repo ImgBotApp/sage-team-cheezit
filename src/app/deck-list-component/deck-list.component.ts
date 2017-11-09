@@ -1,5 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {DeckId} from "../deck/deck";
+import {Component, Input, OnInit, Inject} from '@angular/core';
+import {Deck, DeckId} from "../deck/deck";
+import {DeckService} from "../deck/deck.service";
+import {MatDialogRef, MAT_DIALOG_DATA, MatSnackBar} from "@angular/material";
 
 @Component({
   selector: 'app-deck-list',
@@ -17,9 +19,13 @@ export class DeckListComponent implements OnInit {
 
     @Input() canAdd?: boolean = false;
 
-  constructor() {
 
-  }
+    id: string;
+    deck: Deck;
+
+    constructor(public deckService : DeckService,
+                public snackBar: MatSnackBar) {
+    }
 
   ngOnInit() {
       //this.deckService.getDecks();
@@ -28,7 +34,23 @@ export class DeckListComponent implements OnInit {
       //        this.decks = decks;
       //    }
       //);
+
   }
+
+    public deleteDeck(id: string): void {
+        this.deckService.deleteDeck(id).then(
+            succeeded => {
+                this.snackBar.open("Deleted Deck", null, {
+                    duration: 2000,
+                });
+            },
+            err => {
+                console.log(err);
+                this.snackBar.open("Error deleting deck", null, {
+                    duration: 2000,
+                });
+            });
+    }
 
 
 }

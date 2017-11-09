@@ -76,6 +76,10 @@ export class DeckService {
         return deckCollection.add({name: name, classId: classId});
     }
 
+    public deleteDeck(deckID: string){
+      return this.db.doc('decks/' + deckID).delete();
+    }
+
     public addNewDeckUser(name: string) {
         if(this.afAuth.auth.currentUser == null) return;
         let deckCollection = this.db.collection<Deck>('decks');
