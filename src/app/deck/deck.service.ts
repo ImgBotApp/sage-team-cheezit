@@ -8,6 +8,7 @@ import {AngularFireAuth} from "angularfire2/auth";
 import {QueryFn} from "angularfire2/firestore/interfaces";
 
 
+
 @Injectable()
 export class DeckService {
 
@@ -103,5 +104,14 @@ export class DeckService {
         console.log(deckId);
         console.log(cardId);
         return this.db.doc('decks/' + deckId).collection('cards').doc(cardId).delete();
+    }
+
+    public renameDeck(deckId: string, newId: string) {
+        const name : Deck = {
+            name: newId
+        };
+        console.log(name);
+        console.log(deckId);
+        return this.db.doc('decks/' + deckId).update(name);
     }
 }

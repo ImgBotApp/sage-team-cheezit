@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {DeckId} from "../deck/deck";
+import {RenameDeckDialogComponent} from "../rename-deck-dialog/rename-deck-dialog.component";
 
 @Component({
   selector: 'app-deck-list',

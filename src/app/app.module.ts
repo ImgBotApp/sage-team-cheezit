@@ -25,6 +25,7 @@ import {MdDialog} from "@angular/material";
 import {NewCardDialogComponent} from "./new-card-dialog/new-card-dialog.component";
 import {NewDeckDialogComponent} from "./new-deck-dialog/new-deck-dialog.component";
 import {SaveCardDialogComponent} from './save-card-dialog/save-card-dialog.component';
+import {RenameDeckDialogComponent} from "./rename-deck-dialog/rename-deck-dialog.component";
 import {AngularFirestoreModule} from "angularfire2/firestore";
 import {AngularFireModule} from "angularfire2";
 import {AngularFireAuthModule} from "angularfire2/auth";
@@ -67,6 +68,7 @@ import {JoinGameComponent} from "./join-game/join-game.component";
         PublicDecksComponent,
         SaveCardDialogComponent,
         JoinGameComponent,
+        RenameDeckDialogComponent,
     ],
     entryComponents: [
         NewCardDialogComponent,
@@ -74,6 +76,7 @@ import {JoinGameComponent} from "./join-game/join-game.component";
         NewClassDialogComponent,
         NewDeckDialogComponent,
         SaveCardDialogComponent,
+        RenameDeckDialogComponent,
     ],
     providers: [
         DeckService,
